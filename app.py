@@ -183,13 +183,16 @@ with st.sidebar:
     st.subheader("📊 Variable Monitor")
     for k, v in st.session_state.user_vars.items():
         st.write(f"**{k.upper()}** : `{v}`")
+import os
 import sys
-from pathlib import Path
 
-# Explicitly insert the absolute path of the app's root folder at the head of sys.path
-ROOT_DIR = Path(__file__).resolve().parent
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
+# Force Python to search inside the subfolder for the modules directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# Import modules
-from modules import ac_single_phase, ac_three_phase, circuit_builder, peem_engine, weird_circuits
+from modules import (
+    ac_single_phase,
+    ac_three_phase,
+    circuit_builder,
+    peem_engine,
+    weird_circuits,
+)
