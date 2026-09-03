@@ -37,7 +37,7 @@ def draw_three_phase_schematic(v_line, config, r_val, x_val):
             d += elm.Resistor().down().label(f"Z_CA\n({r_val}Ω)")
             d += elm.Line().left().tox(0)
 
-        fig = d.draw()
+        fig = d.draw(show=False)
     return fig
 
 
