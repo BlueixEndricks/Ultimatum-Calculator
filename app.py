@@ -184,9 +184,9 @@ with st.sidebar:
     for k, v in st.session_state.user_vars.items():
         st.write(f"**{k.upper()}** : `{v}`")
 import sys
-from pathlib import Path
+import os
 
-# Explicitly append the root directory to Python's path
-sys.path.append(str(Path(__file__).resolve().parent))
+# Force Python to look in the exact directory where app.py lives
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from modules import ac_single_phase, ac_three_phase, circuit_builder, peem_engine, weird_circuits
