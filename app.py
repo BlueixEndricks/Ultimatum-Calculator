@@ -183,3 +183,10 @@ with st.sidebar:
     st.subheader("📊 Variable Monitor")
     for k, v in st.session_state.user_vars.items():
         st.write(f"**{k.upper()}** : `{v}`")
+import sys
+from pathlib import Path
+
+# Explicitly append the root directory to Python's path
+sys.path.append(str(Path(__file__).resolve().parent))
+
+from modules import ac_single_phase, ac_three_phase, circuit_builder, peem_engine, weird_circuits
